@@ -11,6 +11,9 @@ const io = new Server(server, {
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("Swift Aid Backend is running 🚑");
+});
 // In-memory ambulance queue (for FYP demo)
 let ambulanceQueue = [];
 
@@ -58,6 +61,8 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(5000, () => {
-    console.log("✅ Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => {
+    console.log(`✅ Server running on port ${PORT}`);
 });
