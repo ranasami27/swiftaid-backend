@@ -14,6 +14,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("Swift Aid Backend is running 🚑");
 });
+
+app.get("/health", (req, res) => {
+    res.status(200).send("OK");
+});
 // In-memory ambulance queue (for FYP demo)
 let ambulanceQueue = [];
 
